@@ -106,6 +106,29 @@ namespace MVerse.GameMaster
             LoadRoomService(Room.ROOM_1_ORIGIN, out error);
         }
 
+        public static void LoadOneBossFightService(OBFight fight, out bool error)
+        {
+            VARMAP_Initialization.ResetVARMAP();
+
+            switch(fight)
+            {
+                case OBFight.OBF_SPACE_MAMA:
+                    VARMAP_GameMaster.SET_ELEM_POWERS((int)Powers_Index.POWER_INDEX_SHOT, true);
+                    VARMAP_GameMaster.SET_ELEM_POWERS((int)Powers_Index.POWER_INDEX_CLIMB, true);
+                    VARMAP_GameMaster.SET_ELEM_POWERS((int)Powers_Index.POWER_INDEX_DOUBLE_JUMP, true);
+                    VARMAP_GameMaster.SET_ELEM_SELECTED_CHARMS(0, (byte)Charm.CHARM_INPU_OTHER_WORLD);
+                    VARMAP_GameMaster.SET_ELEM_SELECTED_CHARMS(1, (byte)Charm.CHARM_NONE);
+                    LoadRoomService(Room.ROOM_SPACE_MAMA, out error);
+                    break;
+
+                default:
+                    error = true;
+                    break;
+            }
+
+            
+        }
+
         public static void LoadingCompletedService(out bool error)
         {
             if (VARMAP_GameMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_LOADING)

@@ -35,7 +35,7 @@ namespace MVerse.MainMenu
             
             if(GUILayout.Button("One Boss Fight - Space Mama"))
             {
-
+                VARMAP_GameMenu.LOAD_OBF(VARMAP.Types.OBFight.OBF_SPACE_MAMA, out _);
             }
 
             

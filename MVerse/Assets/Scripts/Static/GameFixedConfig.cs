@@ -65,6 +65,7 @@ namespace MVerse.FixedConfig
         {
             "",
             "Scene1",
+            "SceneSpaceMama",
             ""
         };
 

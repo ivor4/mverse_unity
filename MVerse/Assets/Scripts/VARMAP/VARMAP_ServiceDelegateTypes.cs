@@ -3,6 +3,7 @@
 namespace MVerse.VARMAP.Types.Delegates
 {
     public delegate void START_GAME_DELEGATE(out bool error);
+    public delegate void LOAD_OBF_DELEGATE(OBFight fight, out bool error);
     public delegate void LOAD_ROOM_DELEGATE(Room room, out bool error);
     public delegate void EXIT_GAME_DELEGATE(out bool error);
     public delegate void LODING_COMPLETED_DELEGATE(out bool error);

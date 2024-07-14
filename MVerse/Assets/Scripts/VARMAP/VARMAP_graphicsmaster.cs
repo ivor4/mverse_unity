@@ -22,6 +22,9 @@ namespace MVerse.VARMAP.GraphicsMaster
             GET_LIFE_ACTUAL = _GET_LIFE_ACTUAL;
             REG_LIFE_ACTUAL = _REG_LIFE_ACTUAL;
             UNREG_LIFE_ACTUAL = _UNREG_LIFE_ACTUAL;
+            GET_ELEM_SELECTED_CHARMS = _GET_ELEM_SELECTED_CHARMS;
+            GET_SIZE_SELECTED_CHARMS = _GET_SIZE_SELECTED_CHARMS;
+            GET_ARRAY_SELECTED_CHARMS = _GET_ARRAY_SELECTED_CHARMS;
             GET_OTHER_WORLD = _GET_OTHER_WORLD;
             REG_OTHER_WORLD = _REG_OTHER_WORLD;
             UNREG_OTHER_WORLD = _UNREG_OTHER_WORLD;
@@ -51,6 +54,9 @@ namespace MVerse.VARMAP.GraphicsMaster
         public static GetVARMAPValueDelegate<byte> GET_LIFE_ACTUAL;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<byte> REG_LIFE_ACTUAL;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<byte> UNREG_LIFE_ACTUAL;
+        public static GetVARMAPArrayElemValueDelegate<byte> GET_ELEM_SELECTED_CHARMS;
+        public static GetVARMAPArraySizeDelegate GET_SIZE_SELECTED_CHARMS;
+        public static GetVARMAPArrayDelegate<byte> GET_ARRAY_SELECTED_CHARMS;
         public static GetVARMAPValueDelegate<bool> GET_OTHER_WORLD;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<bool> REG_OTHER_WORLD;
         public static ReUnRegisterVARMAPValueChangeEventDelegate<bool> UNREG_OTHER_WORLD;

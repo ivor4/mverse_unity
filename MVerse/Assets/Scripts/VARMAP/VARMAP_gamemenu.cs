@@ -22,6 +22,7 @@ namespace MVerse.VARMAP.GameMenu
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             START_GAME = _START_GAME;
+            LOAD_OBF = _LOAD_OBF;
             EXIT_GAME = _EXIT_GAME;
             /* > ATG 1 END */
         }
@@ -44,6 +45,7 @@ namespace MVerse.VARMAP.GameMenu
         /* SERVICES */
         /* > ATG 3 START */
         public static START_GAME_DELEGATE START_GAME;
+        public static LOAD_OBF_DELEGATE LOAD_OBF;
         public static EXIT_GAME_DELEGATE EXIT_GAME;
         /* > ATG 3 END */
     }

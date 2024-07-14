@@ -61,19 +61,37 @@ namespace MVerse.VARMAP.Types
         CHARM_BASTET_CLIMB = 4
     }
 
+    public enum Powers_Index
+    {
+        POWER_INDEX_SHOT,
+        POWER_INDEX_DOUBLE_JUMP,
+        POWER_INDEX_CLIMB
+    }
+
     public enum Powers
     {
-        POWER_NONE,
-        POWER_INPU_OTHER_WORLD = 1,
-        POWER_NEIT_SHOT = 2,
-        POWER_BASTET_CLIMB = 4
+        POWER_NONE = 0,
+        POWER_SHOT = 1 << Powers_Index.POWER_INDEX_SHOT,
+        POWER_DOUBLE_JUMP = 1 << Powers_Index.POWER_INDEX_DOUBLE_JUMP,
+        POWER_CLIMB = 1 << Powers_Index.POWER_INDEX_CLIMB
     }
 
     public enum Room
     {
         NONE,
         ROOM_1_ORIGIN,
+        
+        ROOM_SPACE_MAMA,
+
         TOTAL_ROOMS
+    }
+
+    public enum OBFight
+    {
+        NONE,
+        OBF_SPACE_MAMA,
+
+        TOTAL_OBF
     }
 
     public enum CollisionLayer

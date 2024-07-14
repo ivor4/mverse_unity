@@ -19,8 +19,6 @@ namespace MVerse.LevelMaster
         private float otherworld_transition_time;
         private float otherworld_observe_time;
 
-        private GameObject otherworld_observe_spirit;
-
         private void Awake()
         {
             if (_singleton != null)
@@ -41,16 +39,6 @@ namespace MVerse.LevelMaster
         {
             loadpercentage = 0;
             otherworld_transition_time = 0f;
-
-            otherworld_observe_spirit = GameObject.Find("SpiritLight");
-            otherworld_observe_spirit.SetActive(false);
-
-            /* DEBUG */
-            VARMAP_LevelMaster.SET_ELEM_POWERS((int)Mathf.Log((int)Powers.POWER_INPU_OTHER_WORLD,2), true);
-            VARMAP_LevelMaster.SET_ELEM_POWERS((int)Mathf.Log((int)Powers.POWER_BASTET_CLIMB, 2), true);
-
-            VARMAP_LevelMaster.SET_ELEM_SELECTED_CHARMS(0, (byte)Charm.CHARM_INPU_OTHER_WORLD);
-            VARMAP_LevelMaster.SET_ELEM_SELECTED_CHARMS(1, (byte)Charm.CHARM_NONE);
         }
 
 
@@ -149,14 +137,7 @@ namespace MVerse.LevelMaster
 
                     bool otherworld = VARMAP_LevelMaster.GET_OTHER_WORLD();
 
-                    if(otherworld && (VARMAP_LevelMaster.GET_OTHER_WORLD_MODE() == OtherWorldMode.OTHER_WORLD_OBSERVE))
-                    {
-                        otherworld_observe_spirit.SetActive(true);
-                    }
-                    else
-                    {
-                        otherworld_observe_spirit.SetActive(false);
-                    }
+    
 
                     otherworld_observe_time = 0f;
                     otherworld_transition_time = 0f;

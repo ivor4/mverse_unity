@@ -1,13 +1,13 @@
 N,ENUM_ID,TYPE,SAFE,ARRAY,DEFVALUE,SAVE,,GameMaster,InputMaster,LevelMaster,PhysicsMaster,GraphicsMaster,GameMenu,PlayerMaster,EnemyMaster,ItemMaster,GameEventMaster
 0,GAME_OPTIONS,GameOptionsStruct,2,0,GameOptionsStruct_Default,Y,,R,R E,R,,R,W,,,,
-1,POWERS,bool,2,8,false,Y,,,,W,,,R,R,,,R
+1,POWERS,bool,2,8,false,Y,,W,,,,,R,R,,,R
 2,ELAPSED_TIME_MS,ulong,2,0,0UL,Y,,W,R,R,,R,R,,,,
 3,ACTUAL_ROOM,Room,2,0,Room.NONE,Y,,W,,R,R,R,,,,,
 4,LIFE_TOTAL,byte,2,0,3,Y,,,,,,R E,,,,,W
 5,LIFE_ACTUAL,byte,2,0,3,Y,,,,,,R E,,W,,,
 6,ITEMS_COLLECTED,ulong,2,2,0UL,Y,,,,R,,,,,,W,
 7,EVENTS_OCCURRED,ulong,2,2,0UL,Y,,,,R,,,,R,R,,W
-8,SELECTED_CHARMS,byte,2,2,0,Y,,,,W,,,,R,,,R
+8,SELECTED_CHARMS,byte,2,2,0,Y,,W,,,,R,,R,,,R
 9,OTHER_WORLD,bool,2,0,false,N,,,,W,R E,R E,,R,R E,R,
 10,OTHER_WORLD_TRANSITION_ACTIVE,bool,2,0,false,N,,,,W,R,R,,R,R,R,
 11,OTHER_WORLD_TRANSITION_PROGRESS,float,2,0,0f,N,,,,W,R,R,,R,R,R,

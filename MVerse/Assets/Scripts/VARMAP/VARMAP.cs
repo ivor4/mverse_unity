@@ -97,6 +97,7 @@ namespace MVerse.VARMAP
         /* All SERVICE Links */
         /* > ATG 2 START < */
         protected static START_GAME_DELEGATE _START_GAME;
+        protected static LOAD_OBF_DELEGATE _LOAD_OBF;
         protected static LOAD_ROOM_DELEGATE _LOAD_ROOM;
         protected static EXIT_GAME_DELEGATE _EXIT_GAME;
         protected static LODING_COMPLETED_DELEGATE _LOADING_COMPLETED;

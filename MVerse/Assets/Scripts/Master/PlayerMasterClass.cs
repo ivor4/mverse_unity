@@ -15,7 +15,6 @@ namespace MVerse.PlayerMaster
         PHYSICAL_STATE_ATTACKING = 4,
         PHYSICAL_STATE_WALL_CLIMBING = 8,
         PHYSICAL_STATE_INVINCIBLE = 16,
-        PHYSICAL_STATE_OBSERVE_OTHER_WORLD = 32,
     }
 
     public class PlayerMasterClass : MonoBehaviour
@@ -101,7 +100,6 @@ namespace MVerse.PlayerMaster
 
         private void Execute_Play()
         {
-            bool observeOtherWorld = (physicalstate & PhysicalState.PHYSICAL_STATE_OBSERVE_OTHER_WORLD) != 0;
             KeyStruct keyInfo = VARMAP_PlayerMaster.GET_PRESSED_KEYS();
 
             UpdateCachedPowers();
@@ -123,13 +121,9 @@ namespace MVerse.PlayerMaster
                 UpdateInvincible();
             }
 
-            if(observeOtherWorld)
-            {
-                UpdateObserveOtherWorld();
-            }
 
             /* Key Input */
-            if ((physicalstate & (PhysicalState.PHYSICAL_STATE_ATTACKING|PhysicalState.PHYSICAL_STATE_WALL_CLIMBING|PhysicalState.PHYSICAL_STATE_OBSERVE_OTHER_WORLD)) == 0)
+            if ((physicalstate & (PhysicalState.PHYSICAL_STATE_ATTACKING|PhysicalState.PHYSICAL_STATE_WALL_CLIMBING)) == 0)
             {
                 bool comboDone = ReadCasualCombos(ref keyInfo);
 
@@ -140,11 +134,9 @@ namespace MVerse.PlayerMaster
                 }
             }
 
-            if ((physicalstate & PhysicalState.PHYSICAL_STATE_OBSERVE_OTHER_WORLD) == 0)
-            {
-                position_struct.position = transform.position;
-                VARMAP_PlayerMaster.SET_PLAYER_POSITION(position_struct);
-            }
+
+            position_struct.position = transform.position;
+            VARMAP_PlayerMaster.SET_PLAYER_POSITION(position_struct);
         }
 
         /// <summary>
@@ -154,38 +146,12 @@ namespace MVerse.PlayerMaster
         private bool ReadCasualCombos(ref KeyStruct keyInfo)
         {
             bool retVal = false;
-            bool actualInOtherWorld;
 
             switch (keyInfo.activeCombo)
             {
                 case KeyCombo.KEY_COMBO_NONE:
                     break;
 
-                case KeyCombo.KEY_COMBO_OBSERVE_OTHER_WORLD:
-
-                    actualInOtherWorld = VARMAP_PlayerMaster.GET_OTHER_WORLD();
-
-                    if (((cached_powers & Powers.POWER_INPU_OTHER_WORLD) != 0) && ((physicalstate & PhysicalState.PHYSICAL_STATE_STANDING) != 0) && (!actualInOtherWorld))
-                    {
-                        VARMAP_PlayerMaster.CHANGE_OTHER_WORLD(true, OtherWorldMode.OTHER_WORLD_OBSERVE);
-                        myrigidbody.velocity = Vector3.zero;
-                        myrenderer.material.color = new Color(1f, 1f, 1f, 0.3f);
-                        AddPhysicalFlag(PhysicalState.PHYSICAL_STATE_OBSERVE_OTHER_WORLD);
-                        retVal = true;
-                    }
-                    break;
-
-                case KeyCombo.KEY_COMBO_OTHER_WORLD:
-
-                    actualInOtherWorld = VARMAP_PlayerMaster.GET_OTHER_WORLD();
-
-                    if (((cached_powers & Powers.POWER_INPU_OTHER_WORLD) != 0) && ((cached_charm & Charm.CHARM_INPU_OTHER_WORLD) != 0) && ((physicalstate & PhysicalState.PHYSICAL_STATE_STANDING) != 0) && (!actualInOtherWorld))
-                    {
-                        VARMAP_PlayerMaster.CHANGE_OTHER_WORLD(true, OtherWorldMode.OTHER_WORLD_STAY);
-                        myrigidbody.velocity = Vector3.zero;
-                        retVal = true;
-                    }
-                    break;
 
                 default:
                     break;
@@ -257,7 +223,7 @@ namespace MVerse.PlayerMaster
                         Stand(otherObject);
                         surface_stand_normal = cpoint.normal;
                     }
-                    else if(((cached_powers & Powers.POWER_BASTET_CLIMB) != 0)&&(climbing_wall != otherObject)&&((physicalstate & PhysicalState.PHYSICAL_STATE_JUMPING) != 0)&&(Math.Abs(cpoint.normal.x) > GameFixedConfig.CLIMB_WALL_MIN_NORMAL_X))
+                    else if(((cached_powers & Powers.POWER_CLIMB) != 0)&&(climbing_wall != otherObject)&&((physicalstate & PhysicalState.PHYSICAL_STATE_JUMPING) != 0)&&(Math.Abs(cpoint.normal.x) > GameFixedConfig.CLIMB_WALL_MIN_NORMAL_X))
                     {
                         ClimbWall(otherObject, cpoint.normal.x);
                     }
@@ -314,10 +280,6 @@ namespace MVerse.PlayerMaster
             standing_platform = platform;
             capsulecollider.material = standMaterial;
             climbing_wall = null;
-
-            //boxcollider.enabled = false;
-            //capsulecollider.enabled = true;
-            //actualcollider = capsulecollider;
         }
 
         private void Fall()
@@ -467,13 +429,6 @@ namespace MVerse.PlayerMaster
             }
         }
 
-        private void UpdateObserveOtherWorld()
-        {
-            if(VARMAP_PlayerMaster.GET_OTHER_WORLD_MODE() != OtherWorldMode.OTHER_WORLD_OBSERVE)
-            {
-                RemovePhysicalFlag(PhysicalState.PHYSICAL_STATE_OBSERVE_OTHER_WORLD);
-            }
-        }
 
         private void ReceiveDamage(byte damage, Vector3 deltaFromEnemy)
         {

@@ -108,6 +108,7 @@ namespace MVerse.VARMAP.Initialization
             /* All Service Links */
             /* > ATG 2 START */
             _START_GAME = GameMasterClass.StartGameService;
+            _LOAD_OBF = GameMasterClass.LoadOneBossFightService;
             _LOAD_ROOM = GameMasterClass.LoadRoomService;
             _EXIT_GAME = GameMasterClass.ExitGameService;
             _LOADING_COMPLETED = GameMasterClass.LoadingCompletedService;
