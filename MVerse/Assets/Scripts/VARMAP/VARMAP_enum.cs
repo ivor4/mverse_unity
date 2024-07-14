@@ -1,4 +1,4 @@
-namespace RamsesTheThird.VARMAP.Enum
+namespace MVerse.VARMAP.Enum
 {
     public enum VARMAP_Variable_ID
     {

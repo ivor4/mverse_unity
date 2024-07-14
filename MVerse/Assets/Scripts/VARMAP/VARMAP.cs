@@ -1,9 +1,9 @@
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.VARMAP.Types.Delegates;
-using RamsesTheThird.VARMAP.Variable;
+using MVerse.VARMAP.Types;
+using MVerse.VARMAP.Types.Delegates;
+using MVerse.VARMAP.Variable;
 using UnityEngine;
 
-namespace RamsesTheThird.VARMAP
+namespace MVerse.VARMAP
 {
     /// <summary>
     /// Unreachable from the outside mother class

@@ -1,6 +1,6 @@
-using RamsesTheThird.VARMAP.Types;
+using MVerse.VARMAP.Types;
 
-namespace RamsesTheThird.VARMAP.CommandMaster
+namespace MVerse.VARMAP.CommandMaster
 {
     /// <summary>
     /// VARMAP inheritance with permissions for MainMenu module

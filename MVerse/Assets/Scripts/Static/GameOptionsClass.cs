@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.VARMAP.DefaultValues;
+using MVerse.VARMAP.Types;
+using MVerse.VARMAP.DefaultValues;
 
-namespace RamsesTheThird.GameOptions
+namespace MVerse.GameOptions
 {
     
     public static class GameOptionsClass

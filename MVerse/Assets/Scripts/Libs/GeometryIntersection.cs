@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace RamsesTheThird.Libs.GeometryIntersection
+namespace MVerse.Libs.GeometryIntersection
 {
     public static class GeometryIntersection
     {

@@ -4,7 +4,7 @@ using Unity.Profiling;
 using Unity.Profiling.Editor;
 using UnityEngine;
 
-namespace RamsesTheThird.Profiling
+namespace MVerse.Profiling
 {
     public enum StatCounter
     {

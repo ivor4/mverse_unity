@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.VARMAP.GameMaster;
+using MVerse.VARMAP.Types;
+using MVerse.VARMAP.GameMaster;
 using UnityEngine.SceneManagement;
-using RamsesTheThird.VARMAP.Initialization;
-using RamsesTheThird.FixedConfig;
-using RamsesTheThird.VARMAP.Safe;
+using MVerse.VARMAP.Initialization;
+using MVerse.FixedConfig;
+using MVerse.VARMAP.Safe;
 using UnityEditor;
 
-namespace RamsesTheThird.GameMaster
+namespace MVerse.GameMaster
 {
 
     public class GameMasterClass : MonoBehaviour

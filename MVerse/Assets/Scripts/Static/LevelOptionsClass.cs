@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using RamsesTheThird.VARMAP.Types;
+using MVerse.VARMAP.Types;
 
-namespace RamsesTheThird.LevelOptions
+namespace MVerse.LevelOptions
 {
     public static class LevelOptionsClass
     {

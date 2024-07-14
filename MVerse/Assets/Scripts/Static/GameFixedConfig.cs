@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RamsesTheThird.FixedConfig
+namespace MVerse.FixedConfig
 {
     public static class GameFixedConfig
     {

@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace RamsesTheThird.VARMAP.Types.Parsers
+namespace MVerse.VARMAP.Types.Parsers
 {
     public static class VARMAP_parsers
     {

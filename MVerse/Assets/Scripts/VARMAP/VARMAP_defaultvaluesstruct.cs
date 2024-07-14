@@ -1,9 +1,9 @@
 
-using RamsesTheThird.VARMAP.Types;
+using MVerse.VARMAP.Types;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RamsesTheThird.VARMAP.DefaultValues
+namespace MVerse.VARMAP.DefaultValues
 {
 
     public abstract partial class VARMAP_DefaultValues : VARMAP

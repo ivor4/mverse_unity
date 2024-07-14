@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.VARMAP.GraphicsMaster;
-using RamsesTheThird.FixedConfig;
+using MVerse.VARMAP.Types;
+using MVerse.VARMAP.GraphicsMaster;
+using MVerse.FixedConfig;
 
 
-namespace RamsesTheThird.GraphicsMaster
+namespace MVerse.GraphicsMaster
 {
     public class GraphicsMasterClass : MonoBehaviour
     {

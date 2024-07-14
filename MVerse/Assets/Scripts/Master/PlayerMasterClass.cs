@@ -1,11 +1,11 @@
 ﻿using UnityEditor;
 using UnityEngine;
-using RamsesTheThird.VARMAP.PlayerMaster;
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.FixedConfig;
+using MVerse.VARMAP.PlayerMaster;
+using MVerse.VARMAP.Types;
+using MVerse.FixedConfig;
 using System;
 
-namespace RamsesTheThird.PlayerMaster
+namespace MVerse.PlayerMaster
 {
     public enum PhysicalState
     {

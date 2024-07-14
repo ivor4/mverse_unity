@@ -1,10 +1,10 @@
-using RamsesTheThird.VARMAP.Enum;
-using RamsesTheThird.VARMAP.Variable;
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.VARMAP.Types.Parsers;
+using MVerse.VARMAP.Enum;
+using MVerse.VARMAP.Variable;
+using MVerse.VARMAP.Types;
+using MVerse.VARMAP.Types.Parsers;
 using UnityEngine;
 
-namespace RamsesTheThird.VARMAP.Initialization
+namespace MVerse.VARMAP.Initialization
 {
     public abstract partial class VARMAP_Initialization : VARMAP
     {

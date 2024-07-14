@@ -1,12 +1,12 @@
-using RamsesTheThird.VARMAP.Variable.IstreamableNamespace;
+using MVerse.VARMAP.Variable.IstreamableNamespace;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using RamsesTheThird.Libs.Arith;
+using MVerse.Libs.Arith;
 
-namespace RamsesTheThird.VARMAP.Types
+namespace MVerse.VARMAP.Types
 {
     public delegate void VARMAPValueChangedEvent<T>(ChangedEventType eventType, ref T oldval, ref T newval);
     public delegate T GetVARMAPValueDelegate<T>();

@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-using RamsesTheThird.VARMAP.Config;
+using MVerse.VARMAP.Config;
 
-namespace RamsesTheThird.VARMAP.Safe
+namespace MVerse.VARMAP.Safe
 {
 
     public abstract class VARMAP_Safe : VARMAP

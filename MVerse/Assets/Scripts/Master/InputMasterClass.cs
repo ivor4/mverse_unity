@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RamsesTheThird.VARMAP.InputMaster;
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.FixedConfig;
+using MVerse.VARMAP.InputMaster;
+using MVerse.VARMAP.Types;
+using MVerse.FixedConfig;
 using System;
-using RamsesTheThird.Libs.Arith;
+using MVerse.Libs.Arith;
 
-namespace RamsesTheThird.InputMaster
+namespace MVerse.InputMaster
 {
     public class InputMasterClass : MonoBehaviour
     {
@@ -218,10 +218,11 @@ namespace RamsesTheThird.InputMaster
         private int CountPressedKeys(KeyFunctions keys)
         {
             int count = 0;
+            uint ukeys = (uint)keys;
 
-            while(keys != 0)
+            while(ukeys != 0)
             {
-                keys &= keys - 1;
+                ukeys &= ukeys - 1u;
                 count++;
             }
 

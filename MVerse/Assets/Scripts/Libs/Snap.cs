@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RamsesTheThird.FixedConfig;
+using MVerse.FixedConfig;
 using System.Runtime.CompilerServices;
 
-namespace RamsesTheThird.Libs.Snap
+namespace MVerse.Libs.Snap
 {
     public struct GridCoordinates
     {

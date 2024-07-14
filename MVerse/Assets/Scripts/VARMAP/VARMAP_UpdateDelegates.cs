@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RamsesTheThird.VARMAP.Enum;
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.LevelOptions;
-using RamsesTheThird.GameMaster;
-using RamsesTheThird.LevelMaster;
-using RamsesTheThird.InputMaster;
-using RamsesTheThird.PhysicsMaster;
-using RamsesTheThird.GraphicsMaster;
-using RamsesTheThird.VARMAP.Variable;
+using MVerse.VARMAP.Enum;
+using MVerse.VARMAP.Types;
+using MVerse.LevelOptions;
+using MVerse.GameMaster;
+using MVerse.LevelMaster;
+using MVerse.InputMaster;
+using MVerse.PhysicsMaster;
+using MVerse.GraphicsMaster;
+using MVerse.VARMAP.Variable;
 
-namespace RamsesTheThird.VARMAP.Initialization
+namespace MVerse.VARMAP.Initialization
 {
     public abstract partial class VARMAP_Initialization : VARMAP
     {

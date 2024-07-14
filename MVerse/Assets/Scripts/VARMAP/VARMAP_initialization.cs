@@ -1,26 +1,26 @@
-using RamsesTheThird.VARMAP.Enum;
-using RamsesTheThird.VARMAP.Safe;
-using RamsesTheThird.VARMAP.SaveData;
-using RamsesTheThird.VARMAP.DefaultValues;
-using RamsesTheThird.VARMAP.Variable;
-using RamsesTheThird.VARMAP.Config;
-using RamsesTheThird.Libs.CRC32;
-using RamsesTheThird.VARMAP.GameMaster;
-using RamsesTheThird.VARMAP.LevelMaster;
-using RamsesTheThird.VARMAP.InputMaster;
-using RamsesTheThird.VARMAP.PhysicsMaster;
-using RamsesTheThird.VARMAP.GraphicsMaster;
-using RamsesTheThird.VARMAP.GameMenu;
-using RamsesTheThird.VARMAP.PlayerMaster;
-using RamsesTheThird.VARMAP.EnemyMaster;
-using RamsesTheThird.VARMAP.ItemMaster;
-using RamsesTheThird.VARMAP.GameEventMaster;
+using MVerse.VARMAP.Enum;
+using MVerse.VARMAP.Safe;
+using MVerse.VARMAP.SaveData;
+using MVerse.VARMAP.DefaultValues;
+using MVerse.VARMAP.Variable;
+using MVerse.VARMAP.Config;
+using MVerse.Libs.CRC32;
+using MVerse.VARMAP.GameMaster;
+using MVerse.VARMAP.LevelMaster;
+using MVerse.VARMAP.InputMaster;
+using MVerse.VARMAP.PhysicsMaster;
+using MVerse.VARMAP.GraphicsMaster;
+using MVerse.VARMAP.GameMenu;
+using MVerse.VARMAP.PlayerMaster;
+using MVerse.VARMAP.EnemyMaster;
+using MVerse.VARMAP.ItemMaster;
+using MVerse.VARMAP.GameEventMaster;
 using System.IO;
-using RamsesTheThird.FixedConfig;
+using MVerse.FixedConfig;
 using System;
 using UnityEngine;
 
-namespace RamsesTheThird.VARMAP.Initialization
+namespace MVerse.VARMAP.Initialization
 {
     public abstract partial class VARMAP_Initialization : VARMAP
     {

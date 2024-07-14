@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.VARMAP.LevelMaster;
+using MVerse.VARMAP.Types;
+using MVerse.VARMAP.LevelMaster;
 using System;
-using RamsesTheThird.FixedConfig;
-using RamsesTheThird.EnemyMaster;
+using MVerse.FixedConfig;
+using MVerse.EnemyMaster;
 
-namespace RamsesTheThird.LevelMaster
+namespace MVerse.LevelMaster
 {
     public class LevelMasterClass : MonoBehaviour
     {

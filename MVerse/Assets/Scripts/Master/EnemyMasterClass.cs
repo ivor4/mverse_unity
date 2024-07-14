@@ -1,11 +1,11 @@
 ﻿using UnityEditor;
 using UnityEngine;
-using RamsesTheThird.VARMAP.EnemyMaster;
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.FixedConfig;
+using MVerse.VARMAP.EnemyMaster;
+using MVerse.VARMAP.Types;
+using MVerse.FixedConfig;
 using System.Collections.Generic;
 
-namespace RamsesTheThird.EnemyMaster
+namespace MVerse.EnemyMaster
 {
     public class EnemyMasterClass : MonoBehaviour
     {

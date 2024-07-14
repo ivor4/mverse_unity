@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using RamsesTheThird.VARMAP.Types;
+using MVerse.VARMAP.Types;
 using System;
 
-namespace RamsesTheThird.InputMaster
+namespace MVerse.InputMaster
 {
     public struct KeyComboAndCombo
     {
@@ -12,14 +12,14 @@ namespace RamsesTheThird.InputMaster
 
     public static class ComboHolder
     {
-        private static KeyFunctions[] ObserveOtherWorld =
+        private static readonly KeyFunctions[] ObserveOtherWorld =
         {
             KeyFunctions.KEYFUNC_DOWN,
             KeyFunctions.KEYFUNC_UP,
             KeyFunctions.KEYFUNC_SPELL
         };
 
-        private static KeyFunctions[] ChangeToOtherWorld =
+        private static readonly KeyFunctions[] ChangeToOtherWorld =
         {
             KeyFunctions.KEYFUNC_DOWN,
             KeyFunctions.KEYFUNC_UP,
@@ -27,7 +27,7 @@ namespace RamsesTheThird.InputMaster
             KeyFunctions.KEYFUNC_SPELL
         };
 
-        private static KeyFunctions[] RightSuperAttackArray =
+        private static readonly KeyFunctions[] RightSuperAttackArray =
         {
             KeyFunctions.KEYFUNC_DOWN,
             KeyFunctions.KEYFUNC_LEFT,
@@ -35,7 +35,7 @@ namespace RamsesTheThird.InputMaster
             KeyFunctions.KEYFUNC_ATTACK
         };
 
-        private static KeyFunctions[] RightRollArray =
+        private static readonly KeyFunctions[] RightRollArray =
         {
             KeyFunctions.KEYFUNC_DOWN,
             KeyFunctions.KEYFUNC_LEFT,
@@ -43,7 +43,7 @@ namespace RamsesTheThird.InputMaster
             KeyFunctions.KEYFUNC_RIGHT
         };
 
-        private static KeyFunctions[] LeftSuperAttackArray =
+        private static readonly KeyFunctions[] LeftSuperAttackArray =
         {
             KeyFunctions.KEYFUNC_DOWN,
             KeyFunctions.KEYFUNC_RIGHT,
@@ -51,26 +51,26 @@ namespace RamsesTheThird.InputMaster
             KeyFunctions.KEYFUNC_ATTACK
         };
 
-        private static KeyFunctions[] RightFastForwardArray =
+        private static readonly KeyFunctions[] RightFastForwardArray =
         {
             KeyFunctions.KEYFUNC_RIGHT,
             KeyFunctions.KEYFUNC_RIGHT
         };
 
-        private static KeyFunctions[] LeftFastForwardArray =
+        private static readonly KeyFunctions[] LeftFastForwardArray =
         {
             KeyFunctions.KEYFUNC_LEFT,
             KeyFunctions.KEYFUNC_LEFT
         };
 
-        private static KeyFunctions[] ClimbWallRight =
+        private static readonly KeyFunctions[] ClimbWallRight =
         {
             KeyFunctions.KEYFUNC_UP,
             KeyFunctions.KEYFUNC_RIGHT,
             KeyFunctions.KEYFUNC_JUMP
         };
 
-        private static KeyFunctions[] ClimbWallLeft =
+        private static readonly KeyFunctions[] ClimbWallLeft =
         {
             KeyFunctions.KEYFUNC_UP,
             KeyFunctions.KEYFUNC_LEFT,

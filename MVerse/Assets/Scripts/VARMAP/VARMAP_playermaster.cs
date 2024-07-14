@@ -1,8 +1,8 @@
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.VARMAP.Types.Delegates;
+using MVerse.VARMAP.Types;
+using MVerse.VARMAP.Types.Delegates;
 using UnityEngine;
 
-namespace RamsesTheThird.VARMAP.PlayerMaster
+namespace MVerse.VARMAP.PlayerMaster
 {
     /// <summary>
     /// VARMAP inheritance with permissions for MainMenu module

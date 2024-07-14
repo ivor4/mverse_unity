@@ -1,10 +1,10 @@
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.VARMAP.Enum;
-using RamsesTheThird.VARMAP.Variable;
+using MVerse.VARMAP.Types;
+using MVerse.VARMAP.Enum;
+using MVerse.VARMAP.Variable;
 using System.IO;
 using UnityEngine;
 
-namespace RamsesTheThird.VARMAP.DefaultValues
+namespace MVerse.VARMAP.DefaultValues
 {
     public abstract partial class VARMAP_DefaultValues : VARMAP
     {

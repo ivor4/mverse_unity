@@ -1,18 +1,18 @@
 
 using System;
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.VARMAP.Safe;
-using RamsesTheThird.VARMAP.Enum;
+using MVerse.VARMAP.Types;
+using MVerse.VARMAP.Safe;
+using MVerse.VARMAP.Enum;
 using UnityEngine;
 using System.IO;
 using System.Collections;
-using RamsesTheThird.VARMAP.Variable.IstreamableNamespace;
+using MVerse.VARMAP.Variable.IstreamableNamespace;
 using System.Collections.Generic;
-using RamsesTheThird.Libs.Cast;
-using RamsesTheThird.Libs.CRC32;
-using RamsesTheThird.Libs.Arith;
+using MVerse.Libs.Cast;
+using MVerse.Libs.CRC32;
+using MVerse.Libs.Arith;
 
-namespace RamsesTheThird.VARMAP.Variable
+namespace MVerse.VARMAP.Variable
 {
 
     public abstract class VARMAP_Variable_Indexable : IStreamable

@@ -1,8 +1,8 @@
 ﻿using UnityEditor;
 using UnityEngine;
-using RamsesTheThird.VARMAP.Enum;
+using MVerse.VARMAP.Enum;
 
-namespace RamsesTheThird.VARMAP.SaveData
+namespace MVerse.VARMAP.SaveData
 {
     public abstract class VARMAP_savedata : VARMAP
     {

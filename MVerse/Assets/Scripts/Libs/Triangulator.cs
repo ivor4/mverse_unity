@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using RamsesTheThird.Libs.Arith;
+using MVerse.Libs.Arith;
 using System;
 
-namespace RamsesTheThird.Libs.Triangulator
+namespace MVerse.Libs.Triangulator
 {
     public static class TriangulatorClass
     {

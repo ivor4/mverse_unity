@@ -2,7 +2,7 @@ using System;
 using System.IO;
 
 
-namespace RamsesTheThird.Libs.CRC32
+namespace MVerse.Libs.CRC32
 {
     public struct Digest
     {

@@ -1,8 +1,8 @@
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.VARMAP.Types.Delegates;
+using MVerse.VARMAP.Types;
+using MVerse.VARMAP.Types.Delegates;
 
 
-namespace RamsesTheThird.VARMAP.GameMaster
+namespace MVerse.VARMAP.GameMaster
 {
 
     public abstract class VARMAP_GameMaster : VARMAP

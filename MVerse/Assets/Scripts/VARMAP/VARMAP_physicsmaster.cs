@@ -1,7 +1,7 @@
-using RamsesTheThird.VARMAP.Types;
-using RamsesTheThird.VARMAP.Types.Delegates;
+using MVerse.VARMAP.Types;
+using MVerse.VARMAP.Types.Delegates;
 
-namespace RamsesTheThird.VARMAP.PhysicsMaster
+namespace MVerse.VARMAP.PhysicsMaster
 {
     public abstract class VARMAP_PhysicsMaster : VARMAP
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace RamsesTheThird.Libs.Regulation
+namespace MVerse.Libs.Regulation
 {
 
     public class PI_RegulatorClass

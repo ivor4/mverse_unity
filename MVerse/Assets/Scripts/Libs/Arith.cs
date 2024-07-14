@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace RamsesTheThird.Libs.Arith
+namespace MVerse.Libs.Arith
 {
     public static class Sorting<T> where T : IComparable
     {

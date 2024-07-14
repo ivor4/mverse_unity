@@ -1,10 +1,10 @@
-using RamsesTheThird.Libs.CRC32;
+using MVerse.Libs.CRC32;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-namespace RamsesTheThird.VARMAP.Variable.IstreamableNamespace
+namespace MVerse.VARMAP.Variable.IstreamableNamespace
 {
     public delegate IStreamable StreamableNewInstanceDelegate();
     public interface IStreamable

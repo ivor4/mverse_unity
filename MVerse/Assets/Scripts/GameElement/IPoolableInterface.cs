@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace RamsesTheThird.BaseClasses.IPoolable
+namespace MVerse.BaseClasses.IPoolable
 {
     public interface IPoolableInterface
     {

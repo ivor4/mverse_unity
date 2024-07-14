@@ -2,10 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RamsesTheThird.Libs.Arith;
-using RamsesTheThird.Libs.Triangulator;
+using MVerse.Libs.Arith;
+using MVerse.Libs.Triangulator;
 
-namespace RamsesTheThird.Libs.MeshManipulation
+namespace MVerse.Libs.MeshManipulation
 {
     public struct VertexTruple
     {

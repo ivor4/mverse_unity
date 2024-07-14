@@ -1,8 +1,8 @@
 ﻿using UnityEditor;
 using UnityEngine;
-using RamsesTheThird.VARMAP.GameMenu;
+using MVerse.VARMAP.GameMenu;
 
-namespace RamsesTheThird.MainMenu
+namespace MVerse.MainMenu
 {
     public class MainMenuClass : MonoBehaviour
     {
@@ -24,16 +24,23 @@ namespace RamsesTheThird.MainMenu
         {
             GUILayout.BeginArea(Screen.safeArea);
 
-            GUILayout.BeginVertical();
+            
             GUILayout.BeginHorizontal();
+            GUILayout.BeginVertical();
 
-            if(GUILayout.Button("Start Game"))
+            if (GUILayout.Button("Start Game"))
             {
                 VARMAP_GameMenu.START_GAME(out _);
             }
+            
+            if(GUILayout.Button("One Boss Fight - Space Mama"))
+            {
 
-            GUILayout.EndHorizontal();
+            }
+
+            
             GUILayout.EndVertical();
+            GUILayout.EndHorizontal();
 
             GUILayout.EndArea();
         }

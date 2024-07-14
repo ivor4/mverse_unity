@@ -2,23 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraClass : MonoBehaviour
+namespace MVerse.CameraMaster
 {
-    private Camera _camera;
-    private void Awake()
+    public class CameraClass : MonoBehaviour
     {
-        _camera = GetComponent<Camera>();
-    }
+        private Camera _camera;
+        private void Awake()
+        {
+            _camera = GetComponent<Camera>();
+        }
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-        
-    }
+        // Start is called before the first frame update
+        private void Start()
+        {
 
-    // Update is called once per frame
-    private void Update()
-    {
-        
+        }
+
+        // Update is called once per frame
+        private void Update()
+        {
+
+        }
     }
 }

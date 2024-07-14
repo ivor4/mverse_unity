@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using RamsesTheThird.VARMAP.Types;
+using MVerse.VARMAP.Types;
 using UnityEngine;
-using RamsesTheThird.VARMAP.PhysicsMaster;
-using RamsesTheThird.Libs.Arith;
-using RamsesTheThird.FixedConfig;
+using MVerse.VARMAP.PhysicsMaster;
+using MVerse.Libs.Arith;
+using MVerse.FixedConfig;
 using System;
 
 
-namespace RamsesTheThird.PhysicsMaster
+namespace MVerse.PhysicsMaster
 {
     public class PhysicsMasterClass : MonoBehaviour
     {

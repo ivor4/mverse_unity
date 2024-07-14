@@ -1,6 +1,6 @@
-﻿using RamsesTheThird.EnemyMaster;
+﻿using MVerse.EnemyMaster;
 
-namespace RamsesTheThird.VARMAP.Types.Delegates
+namespace MVerse.VARMAP.Types.Delegates
 {
     public delegate void START_GAME_DELEGATE(out bool error);
     public delegate void LOAD_ROOM_DELEGATE(Room room, out bool error);
