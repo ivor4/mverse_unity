@@ -72,6 +72,8 @@ namespace MVerse.PlayerMaster
 
         private void Start()
         {
+            VARMAP_PlayerMaster.REG_GAMESTATUS(OnGameStatusChange);
+
             Fall();
             climbing_wall = null;
 
@@ -81,16 +83,7 @@ namespace MVerse.PlayerMaster
 
         private void Update()
         {
-            Game_Status gstatus = VARMAP_PlayerMaster.GET_GAMESTATUS();
-
-            switch(gstatus)
-            {
-                case Game_Status.GAME_STATUS_PLAY:
-                    Execute_Play();
-                    break;
-                default:
-                    break;
-            }
+            Execute_Play();
         }
 
         private void FixedUpdate()
@@ -116,14 +109,14 @@ namespace MVerse.PlayerMaster
                 UpdateClimb(ref keyInfo);
             }
 
-            if((physicalstate & PhysicalState.PHYSICAL_STATE_INVINCIBLE) != 0)
+            if ((physicalstate & PhysicalState.PHYSICAL_STATE_INVINCIBLE) != 0)
             {
                 UpdateInvincible();
             }
 
 
             /* Key Input */
-            if ((physicalstate & (PhysicalState.PHYSICAL_STATE_ATTACKING|PhysicalState.PHYSICAL_STATE_WALL_CLIMBING)) == 0)
+            if ((physicalstate & (PhysicalState.PHYSICAL_STATE_ATTACKING | PhysicalState.PHYSICAL_STATE_WALL_CLIMBING)) == 0)
             {
                 bool comboDone = ReadCasualCombos(ref keyInfo);
 
@@ -162,12 +155,12 @@ namespace MVerse.PlayerMaster
 
         private void ReadMovementKeys(ref KeyStruct keyInfo)
         {
-            if(((keyInfo.cyclepressedKeys & KeyFunctions.KEYFUNC_JUMP) != 0) && ((physicalstate & PhysicalState.PHYSICAL_STATE_STANDING) != 0))
+            if (((keyInfo.cyclepressedKeys & KeyFunctions.KEYFUNC_JUMP) != 0) && ((physicalstate & PhysicalState.PHYSICAL_STATE_STANDING) != 0))
             {
                 Jump(0);
             }
 
-            if((keyInfo.pressedKeys & KeyFunctions.KEYFUNC_LEFT) != 0)
+            if ((keyInfo.pressedKeys & KeyFunctions.KEYFUNC_LEFT) != 0)
             {
                 MoveLeft();
             }
@@ -177,7 +170,7 @@ namespace MVerse.PlayerMaster
             }
             else
             {
-                
+
             }
         }
 
@@ -188,7 +181,7 @@ namespace MVerse.PlayerMaster
 
             CollisionLayer clayer = (CollisionLayer)otherObject.layer;
 
-            switch(clayer)
+            switch (clayer)
             {
                 case CollisionLayer.LAYER_ENEMY:
                     if ((physicalstate & PhysicalState.PHYSICAL_STATE_INVINCIBLE) == 0)
@@ -210,8 +203,10 @@ namespace MVerse.PlayerMaster
             {
                 case CollisionLayer.LAYER_SOLID:
 
-                    /* Annulate deflect velocity due to collision [x axis] (this happens when the round part of capsule collides an edge and the whole body gets deflected) */
-                    if (((physicalstate & PhysicalState.PHYSICAL_STATE_STANDING) == 0) && (Math.Abs(cpoint.normal.x) < GameFixedConfig.CLIMB_WALL_MIN_NORMAL_X))
+                    /* Annulate deflect velocity due to collision [x axis]
+                     * (this happens when the round part of capsule collides an edge and the whole body gets deflected) */
+                    if (((physicalstate & PhysicalState.PHYSICAL_STATE_STANDING) == 0) &&
+                        (Math.Abs(cpoint.normal.x) < GameFixedConfig.CLIMB_WALL_MIN_NORMAL_X))
                     {
                         myrigidbody.velocity = new Vector3(velocity_pre_collision.x, myrigidbody.velocity.y, myrigidbody.velocity.z);
                         velocity_pre_collision = myrigidbody.velocity;
@@ -223,7 +218,9 @@ namespace MVerse.PlayerMaster
                         Stand(otherObject);
                         surface_stand_normal = cpoint.normal;
                     }
-                    else if(((cached_powers & Powers.POWER_CLIMB) != 0)&&(climbing_wall != otherObject)&&((physicalstate & PhysicalState.PHYSICAL_STATE_JUMPING) != 0)&&(Math.Abs(cpoint.normal.x) > GameFixedConfig.CLIMB_WALL_MIN_NORMAL_X))
+                    else if (((cached_powers & Powers.POWER_CLIMB) != 0) && (climbing_wall != otherObject) &&
+                        ((physicalstate & PhysicalState.PHYSICAL_STATE_JUMPING) != 0) &&
+                        (Math.Abs(cpoint.normal.x) > GameFixedConfig.CLIMB_WALL_MIN_NORMAL_X))
                     {
                         ClimbWall(otherObject, cpoint.normal.x);
                     }
@@ -237,12 +234,14 @@ namespace MVerse.PlayerMaster
             CollisionLayer clayer = (CollisionLayer)otherObject.layer;
             ContactPoint cpoint = collision.GetContact(0);
 
-            
+
             switch (clayer)
             {
                 case CollisionLayer.LAYER_SOLID:
-                    /* Annulate deflect velocity due to collision [x axis] (this happens when the round part of capsule collides an edge and the whole body gets deflected) */
-                    if (((physicalstate & PhysicalState.PHYSICAL_STATE_STANDING) == 0) && (Math.Abs(cpoint.normal.x) < GameFixedConfig.CLIMB_WALL_MIN_NORMAL_X))
+                    /* Annulate deflect velocity due to collision [x axis]
+                     * (this happens when the round part of capsule collides an edge and the whole body gets deflected) */
+                    if (((physicalstate & PhysicalState.PHYSICAL_STATE_STANDING) == 0) &&
+                        (Math.Abs(cpoint.normal.x) < GameFixedConfig.CLIMB_WALL_MIN_NORMAL_X))
                     {
                         myrigidbody.velocity = new Vector3(velocity_pre_collision.x, myrigidbody.velocity.y, myrigidbody.velocity.z);
                         velocity_pre_collision = myrigidbody.velocity;
@@ -260,14 +259,28 @@ namespace MVerse.PlayerMaster
         {
             GameObject otherObject = collision.gameObject;
 
-            if(standing_platform == otherObject)
+            if (standing_platform == otherObject)
             {
                 Fall();
             }
 
-            if((climbing_wall == otherObject) && ((physicalstate & PhysicalState.PHYSICAL_STATE_WALL_CLIMBING) != 0))
+            if ((climbing_wall == otherObject) && ((physicalstate & PhysicalState.PHYSICAL_STATE_WALL_CLIMBING) != 0))
             {
                 Fall();
+            }
+        }
+
+        private void OnGameStatusChange(ChangedEventType type, ref Game_Status oldstatus, ref Game_Status newstatus)
+        {
+            if(newstatus == Game_Status.GAME_STATUS_PLAY)
+            {
+                enabled = true;
+                actualcollider.enabled = true;
+            }
+            else
+            {
+                enabled = false;
+                actualcollider.enabled = false;
             }
         }
 
@@ -315,11 +328,13 @@ namespace MVerse.PlayerMaster
 
         private void MoveLeftRight(float multiplier)
         {
-            Ray ray = new Ray(new Vector3(actualcollider.bounds.center.x, actualcollider.bounds.max.y, actualcollider.bounds.center.z), multiplier*Vector3.right);
+            Ray ray = new Ray(new Vector3(actualcollider.bounds.center.x, actualcollider.bounds.max.y,
+                actualcollider.bounds.center.z), multiplier*Vector3.right);
 
             float deltax;
 
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, GameFixedConfig.PLAYER_NORMAL_MOVEMENT_SPEED * Time.fixedDeltaTime, solidMask, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, GameFixedConfig.PLAYER_NORMAL_MOVEMENT_SPEED * Time.fixedDeltaTime,
+                solidMask, QueryTriggerInteraction.Ignore))
             {
                 deltax = hitInfo.distance - actualcollider.bounds.extents.x;
             }
@@ -334,10 +349,12 @@ namespace MVerse.PlayerMaster
 
             if ((physicalstate & PhysicalState.PHYSICAL_STATE_STANDING) != 0)
             {
-                /* Producto escalar de toda la vida =>  Va·Vb = |Va|*|Vb|*cos(Va^Vb)  [Los modulos de ambos es 1],  nos interesa sacar Va^Vb con el arcocoseno */
+                /* Producto escalar de toda la vida =>  Va·Vb = |Va|*|Vb|*cos(Va^Vb)  [Los modulos de ambos es 1],
+                 * nos interesa sacar Va^Vb con el arcocoseno */
                 double scalar = Vector3.Dot(-surface_stand_normal, Vector3.right);
                 double angle_normal_to_movement = Math.Acos(scalar);
-                /* Un triangulo suma angulos internos a 180 (PI), si a PI le restamos el angulo recto de 90º (PI/2), nos quedamos en PI/2, si le restamos el angulo que tenemos, sacamos el que falta */
+                /* Un triangulo suma angulos internos a 180 (PI), si a PI le restamos el angulo recto de 90º (PI/2),
+                 * nos quedamos en PI/2, si le restamos el angulo que tenemos, sacamos el que falta */
                 double angle_movement_to_surface = PI_DIV_TWO - angle_normal_to_movement;
                 /* Tan(alpha) = DeltaY/DeltaX    =>    DeltaY = Tan(alpha)*DeltaX    */
                 deltay = (float)(Math.Tan(angle_movement_to_surface) * deltax);
@@ -377,7 +394,8 @@ namespace MVerse.PlayerMaster
                 /* If player released jump key before speed changing sign */
                 if((keyInfo.pressedKeys & KeyFunctions.KEYFUNC_JUMP) == 0)
                 {
-                    myrigidbody.velocity = new Vector3(myrigidbody.velocity.x, myrigidbody.velocity.y * GameFixedConfig.PLAYER_JUMP_SPEED_REDUCTION_SHORT_PRESS, myrigidbody.velocity.z);
+                    myrigidbody.velocity = new Vector3(myrigidbody.velocity.x,
+                        myrigidbody.velocity.y * GameFixedConfig.PLAYER_JUMP_SPEED_REDUCTION_SHORT_PRESS, myrigidbody.velocity.z);
                     RemovePhysicalFlag(PhysicalState.PHYSICAL_STATE_JUMPING);
                 }
             }
@@ -441,7 +459,8 @@ namespace MVerse.PlayerMaster
         }
 
         /// <summary>
-        /// MUST be called every Update, so Collide/Trigger events can read cached value. This cached value must be constantly updated for safety reason and should not be stored with
+        /// MUST be called every Update, so Collide/Trigger events can read cached value.
+        /// This cached value must be constantly updated for safety reason and should not be stored with
         /// same value (by event) for a long time as it would be target for memory attacks
         /// </summary>
         private void UpdateCachedPowers()
@@ -457,7 +476,8 @@ namespace MVerse.PlayerMaster
         }
 
         /// <summary>
-        /// MUST be called every Update, so Collide/Trigger events can read cached value. This cached value must be constantly updated for safety reason and should not be stored with
+        /// MUST be called every Update, so Collide/Trigger events can read cached value.
+        /// This cached value must be constantly updated for safety reason and should not be stored with
         /// same value (by event) for a long time as it would be target for memory attacks
         /// </summary>
         private void UpdateCachedCharm()

@@ -18,6 +18,8 @@ namespace MVerse.GameMaster
 
         private float elapsed_seconds;
 
+        static private Game_Status prevPauseStatus;
+
         private int debug_index;
         private int debug_value;
 
@@ -50,8 +52,9 @@ namespace MVerse.GameMaster
             switch(gstatus)
             {
                 case Game_Status.GAME_STATUS_PLAY:
-                case Game_Status.GAME_STATUS_STOPPED:
                     Play_Process_Time();
+                    break;
+                case Game_Status.GAME_STATUS_STOPPED:
                     break;
             }
 
@@ -68,6 +71,31 @@ namespace MVerse.GameMaster
             elapsed_seconds += elapsedDelta;
 
             VARMAP_GameMaster.SET_ELAPSED_TIME_MS((ulong)(elapsed_seconds * GameFixedConfig.MILLISECONDS_TO_SECONDS));
+        }
+
+        public static void PauseGameService(bool pause)
+        {
+            Game_Status gstatus = VARMAP_GameMaster.GET_GAMESTATUS();
+            bool playing;
+
+            _ = pause;
+
+            playing = (gstatus == Game_Status.GAME_STATUS_PLAY) || (gstatus == Game_Status.GAME_STATUS_PLAY_FREEZE);
+
+            if ( playing)
+            {
+                VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PAUSE);
+                Physics.simulationMode = SimulationMode.Script;
+            }
+            else if(gstatus == Game_Status.GAME_STATUS_PAUSE)
+            {
+                _SetGameStatus(prevPauseStatus);
+                Physics.simulationMode = SimulationMode.FixedUpdate;
+            }
+            else
+            {
+                /* Redundant operation / Invalid */
+            }
         }
 
 
@@ -94,7 +122,7 @@ namespace MVerse.GameMaster
             if (!error)
             {
                 VARMAP_GameMaster.SET_ACTUAL_ROOM(room);
-                VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_LOADING);
+                _SetGameStatus(Game_Status.GAME_STATUS_LOADING);
 
                 SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
             }
@@ -133,7 +161,7 @@ namespace MVerse.GameMaster
         {
             if (VARMAP_GameMaster.GET_GAMESTATUS() == Game_Status.GAME_STATUS_LOADING)
             {
-                VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PLAY);
+                _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
                 error = false;
             }
             else
@@ -148,11 +176,11 @@ namespace MVerse.GameMaster
 
             if (freeze && (status == Game_Status.GAME_STATUS_PLAY))
             {
-                VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PLAY_FREEZE);
+                _SetGameStatus(Game_Status.GAME_STATUS_PLAY_FREEZE);
             }
             else if((!freeze) && (status == Game_Status.GAME_STATUS_PLAY_FREEZE))
             {
-                VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PLAY);
+                _SetGameStatus(Game_Status.GAME_STATUS_PLAY);
             }
             else
             {
@@ -165,7 +193,7 @@ namespace MVerse.GameMaster
         {
             if (VARMAP_GameMaster.GET_GAMESTATUS() != Game_Status.GAME_STATUS_STOPPED)
             {
-                VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_STOPPED);
+                _SetGameStatus(Game_Status.GAME_STATUS_STOPPED);
                 SceneManager.LoadScene(GameFixedConfig.ROOM_MAINMENU, LoadSceneMode.Single);
                 error = false;
             }
@@ -173,6 +201,12 @@ namespace MVerse.GameMaster
             {
                 error = true;
             }
+        }
+
+        private static void _SetGameStatus(Game_Status status)
+        {
+            VARMAP_GameMaster.SET_GAMESTATUS(status);
+            prevPauseStatus = status;
         }
 
 

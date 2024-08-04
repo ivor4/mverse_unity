@@ -104,6 +104,7 @@ namespace MVerse.VARMAP
         protected static CHANGE_OTHER_WORLD_DELEGATE _CHANGE_OTHER_WORLD;
         protected static FREEZE_PLAY_DELEGATE _FREEZE_PLAY;
         protected static ENEMY_REGISTER_SERVICE _ENEMY_REGISTER;
+        protected static PAUSE_GAME_DELEGATE _PAUSE_GAME;
         /* > ATG 2 END < */
         
         

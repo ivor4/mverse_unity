@@ -54,6 +54,11 @@ namespace MVerse.InputMaster
 
         private void Update()
         {
+            if(Input.GetKeyDown(cachedKeyOptions.pauseKey))
+            {
+                VARMAP_InputMaster.PAUSE_GAME(true);
+            }
+
             if (GameFixedConfig.PERIPH_PC)
             {
                 KeyFunctions pressedandreleasedKeys;

@@ -290,7 +290,7 @@ namespace MVerse.VARMAP.Types
 
     public struct KeyOptions : IStreamable
     {
-        public const int STRUCT_SIZE = 7 * sizeof(ushort);
+        public const int STRUCT_SIZE = 8 * sizeof(ushort);
         public KeyCode upKey;
         public KeyCode downKey;
         public KeyCode leftKey;
@@ -298,6 +298,7 @@ namespace MVerse.VARMAP.Types
         public KeyCode jumpKey;
         public KeyCode attackKey;
         public KeyCode spellKey;
+        public KeyCode pauseKey;
             
             
 
@@ -326,6 +327,7 @@ namespace MVerse.VARMAP.Types
             gstruct.jumpKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
             gstruct.attackKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
             gstruct.spellKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
+            gstruct.pauseKey = (KeyCode)BitConverter.ToUInt16(readZone.ReadNext(sizeof(ushort)));
         }
 
         public static void StaticParseToBytes(ref KeyOptions gstruct, ref Span<byte> writer)
@@ -339,6 +341,7 @@ namespace MVerse.VARMAP.Types
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.jumpKey);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.attackKey);
             BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.spellKey);
+            BitConverter.TryWriteBytes(writeZone.WriteNext(sizeof(ushort)), (ushort)gstruct.pauseKey);
         }
 
         public void ParseFromBytes(ref ReadOnlySpan<byte> reader)

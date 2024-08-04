@@ -18,7 +18,8 @@ namespace MVerse.VARMAP.DefaultValues
                 rightKey = KeyCode.RightArrow,
                 jumpKey = KeyCode.L,
                 attackKey = KeyCode.K,
-                spellKey = KeyCode.J
+                spellKey = KeyCode.J,
+                pauseKey = KeyCode.P
             },
             timeMultiplier = 60f*24f,
             rectangleSelectionColor = new Color(0,0,1,0.12f)

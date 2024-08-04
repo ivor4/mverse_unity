@@ -115,6 +115,7 @@ namespace MVerse.VARMAP.Initialization
             _CHANGE_OTHER_WORLD = LevelMasterClass.ChangeOtherWorldService;
             _FREEZE_PLAY = GameMasterClass.FreezePlayService;
             _ENEMY_REGISTER = LevelMasterClass.EnemyRegisterService;
+            _PAUSE_GAME = GameMasterClass.PauseGameService;
             /* > ATG 2 END */
         }
     }

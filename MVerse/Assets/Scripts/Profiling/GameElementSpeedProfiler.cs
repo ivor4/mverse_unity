@@ -1,8 +1,11 @@
+#if(UNITY_EDITOR)
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Profiling;
 using Unity.Profiling.Editor;
 using UnityEngine;
+
 
 namespace MVerse.Profiling
 {
@@ -103,4 +106,5 @@ namespace MVerse.Profiling
     }
 }
 
+#endif
 

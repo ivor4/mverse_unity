@@ -16,6 +16,7 @@ namespace MVerse.GraphicsMaster
         
         private GameObject guicanvas;
         private Image[] guicanvas_hearts;
+        private Text paused_text;
         private Camera mainCamera;
         private Transform mainCameraTransform;
         private Light sunLight;
@@ -58,7 +59,7 @@ namespace MVerse.GraphicsMaster
         {
             mainCamera = Camera.main;
             mainCameraTransform = mainCamera.transform;
-            sunLight = GameObject.Find("SunLight").GetComponent<Light>();
+            sunLight = GameObject.Find("SpotLight1").GetComponent<Light>();
             guicanvas = GameObject.Find("GUICanvas");
 
             guicanvas_hearts = new Image[GameFixedConfig.MAX_POSSIBLE_LIFE];
@@ -68,8 +69,11 @@ namespace MVerse.GraphicsMaster
                 guicanvas_hearts[i] = guicanvas.transform.Find("heart" + i.ToString()).GetComponent<Image>();
             }
 
+            paused_text = guicanvas.transform.Find("paused").GetComponent<Text>();
+
             VARMAP_GraphicsMaster.REG_LIFE_ACTUAL(LifeChanged);
             VARMAP_GraphicsMaster.REG_LIFE_TOTAL(TotalLifeChanged);
+            VARMAP_GraphicsMaster.REG_GAMESTATUS(_GameStatusChanged);
 
             cached_life = 0;
             cached_totallife = 0;
@@ -98,6 +102,8 @@ namespace MVerse.GraphicsMaster
                 case Game_Status.GAME_STATUS_PLAY:
                     FollowPlayerWithCamera();
                     break;
+                case Game_Status.GAME_STATUS_PAUSE:
+                    break;
             }
         }
 
@@ -110,6 +116,7 @@ namespace MVerse.GraphicsMaster
 
                 VARMAP_GraphicsMaster.UNREG_LIFE_ACTUAL(LifeChanged);
                 VARMAP_GraphicsMaster.UNREG_LIFE_TOTAL(TotalLifeChanged);
+                VARMAP_GraphicsMaster.UNREG_GAMESTATUS(_GameStatusChanged);
             }
         }
 
@@ -216,6 +223,18 @@ namespace MVerse.GraphicsMaster
             }
 
             cached_totallife = newval;
+        }
+
+        private void _GameStatusChanged(ChangedEventType evtype, ref Game_Status oldval, ref Game_Status newval)
+        {
+            if(newval == Game_Status.GAME_STATUS_PAUSE)
+            {
+                paused_text.gameObject.SetActive(true);
+            }
+            else
+            {
+                paused_text.gameObject.SetActive(false);
+            }
         }
     }
 }
