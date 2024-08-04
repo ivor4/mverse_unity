@@ -102,6 +102,10 @@ namespace MVerse.VARMAP.Initialization
             _SET_PLAYER_POSITION = ((VARMAP_Variable_Interface<Vector3Struct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_POSITION]).SetValue;
             _REG_PLAYER_POSITION = ((VARMAP_Variable_Interface<Vector3Struct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_POSITION]).RegisterChangeEvent;
             _UNREG_PLAYER_POSITION = ((VARMAP_Variable_Interface<Vector3Struct>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_PLAYER_POSITION]).UnregisterChangeEvent;
+            _GET_BOSS_STEP = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_BOSS_STEP]).GetValue;
+            _SET_BOSS_STEP = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_BOSS_STEP]).SetValue;
+            _REG_BOSS_STEP = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_BOSS_STEP]).RegisterChangeEvent;
+            _UNREG_BOSS_STEP = ((VARMAP_Variable_Interface<byte>)DATA[(int)VARMAP_Variable_ID.VARMAP_ID_BOSS_STEP]).UnregisterChangeEvent;
             /* > ATG 1 END */
 
 
@@ -115,7 +119,7 @@ namespace MVerse.VARMAP.Initialization
             _CHANGE_OTHER_WORLD = LevelMasterClass.ChangeOtherWorldService;
             _FREEZE_PLAY = GameMasterClass.FreezePlayService;
             _ENEMY_REGISTER = LevelMasterClass.EnemyRegisterService;
-            _PAUSE_GAME = GameMasterClass.PauseGameService;
+            _MONO_REGISTER = LevelMasterClass.MonoRegisterService;
             /* > ATG 2 END */
         }
     }

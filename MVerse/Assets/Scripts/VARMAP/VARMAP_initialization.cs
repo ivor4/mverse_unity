@@ -15,6 +15,7 @@ using MVerse.VARMAP.PlayerMaster;
 using MVerse.VARMAP.EnemyMaster;
 using MVerse.VARMAP.ItemMaster;
 using MVerse.VARMAP.GameEventMaster;
+using MVerse.VARMAP.BossMaster;
 using System.IO;
 using MVerse.FixedConfig;
 using System;
@@ -56,6 +57,7 @@ namespace MVerse.VARMAP.Initialization
             VARMAP_EnemyMaster.UpdateDelegates();
             VARMAP_ItemMaster.UpdateDelegates();
             VARMAP_GameEventMaster.UpdateDelegates();
+            VARMAP_BossMaster.UpdateDelegates();
 
 
             /* BONUS: Set VARMAP data with default values */

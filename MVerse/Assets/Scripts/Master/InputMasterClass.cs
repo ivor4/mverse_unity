@@ -54,11 +54,6 @@ namespace MVerse.InputMaster
 
         private void Update()
         {
-            if(Input.GetKeyDown(cachedKeyOptions.pauseKey))
-            {
-                VARMAP_InputMaster.PAUSE_GAME(true);
-            }
-
             if (GameFixedConfig.PERIPH_PC)
             {
                 KeyFunctions pressedandreleasedKeys;
@@ -76,6 +71,7 @@ namespace MVerse.InputMaster
                 accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.jumpKey) ? KeyFunctions.KEYFUNC_JUMP : 0;
                 accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.attackKey) ? KeyFunctions.KEYFUNC_ATTACK : 0;
                 accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.spellKey) ? KeyFunctions.KEYFUNC_SPELL : 0;
+                accumulatedDownkeys |= Input.GetKey(cachedKeyOptions.pauseKey) ? KeyFunctions.KEYFUNC_PAUSE : 0;
 
 
                 pressedandreleasedKeys = cachedPressedKeys.cyclepressedKeys | cachedPressedKeys.cyclereleasedKeys;

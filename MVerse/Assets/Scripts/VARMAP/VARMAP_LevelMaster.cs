@@ -34,6 +34,7 @@ namespace MVerse.VARMAP.LevelMaster
             CHANGE_OTHER_WORLD = _CHANGE_OTHER_WORLD;
             FREEZE_PLAY = _FREEZE_PLAY;
             ENEMY_REGISTER = _ENEMY_REGISTER;
+            MONO_REGISTER = _MONO_REGISTER;
             /* > ATG 1 END */
         }
 
@@ -70,6 +71,7 @@ namespace MVerse.VARMAP.LevelMaster
         public static CHANGE_OTHER_WORLD_DELEGATE CHANGE_OTHER_WORLD;
         public static FREEZE_PLAY_DELEGATE FREEZE_PLAY;
         public static ENEMY_REGISTER_SERVICE ENEMY_REGISTER;
+        public static MONO_REGISTER_SERVICE MONO_REGISTER;
         /* > ATG 3 END */
     }
 }

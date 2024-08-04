@@ -5,26 +5,26 @@ using MVerse.VARMAP.Types;
 using MVerse.FixedConfig;
 using System.Collections.Generic;
 
-namespace MVerse.EnemyMaster
+namespace MVerse.Boss.BossMaster
 {
     public class BossMasterClass : MonoBehaviour
     {
-        private Rigidbody myrigidbody;
-        private Collider mycollider;
-        private MeshRenderer myrenderer;
-
+        private static BossMasterClass _singleton;
 
         private void Awake()
         {
-
+            if(_singleton != this)
+            {
+                _singleton = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         private void Start()
         {
-            myrigidbody = GetComponent<Rigidbody>();
-            mycollider = GetComponent<Collider>();
-            myrenderer = GetComponent<MeshRenderer>();
-
 
             
         }
@@ -32,19 +32,17 @@ namespace MVerse.EnemyMaster
 
         private void Update()
         {
-            Game_Status gstatus = VARMAP_EnemyMaster.GET_GAMESTATUS();
 
-            switch(gstatus)
+        }
+
+        private void OnDestroy()
+        {
+            if(_singleton == this)
             {
-                case Game_Status.GAME_STATUS_PLAY_FREEZE:
-                    
-                    break;
-
-                case Game_Status.GAME_STATUS_PLAY:
-                    
-                    break;
+                _singleton = null;
             }
         }
+
 
     }
 }

@@ -21,6 +21,7 @@ namespace MVerse.VARMAP.ItemMaster
             GET_OTHER_WORLD_TRANSITION_ACTIVE = _GET_OTHER_WORLD_TRANSITION_ACTIVE;
             GET_OTHER_WORLD_TRANSITION_PROGRESS = _GET_OTHER_WORLD_TRANSITION_PROGRESS;
             GET_OTHER_WORLD_MODE = _GET_OTHER_WORLD_MODE;
+            MONO_REGISTER = _MONO_REGISTER;
             /* > ATG 1 END */
         }
 
@@ -41,6 +42,7 @@ namespace MVerse.VARMAP.ItemMaster
 
         /* SERVICES */
         /* > ATG 3 START */
+        public static MONO_REGISTER_SERVICE MONO_REGISTER;
         /* > ATG 3 END */
     }
 }

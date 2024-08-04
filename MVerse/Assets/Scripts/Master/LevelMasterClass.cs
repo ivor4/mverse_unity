@@ -13,6 +13,7 @@ namespace MVerse.LevelMaster
     {
         private static LevelMasterClass _singleton;
 
+        private static List<MonoBehaviour> _Mono_List;
         private static List<EnemyMasterClass> _Enemy_List;
 
         private int loadpercentage;
@@ -39,6 +40,8 @@ namespace MVerse.LevelMaster
         {
             loadpercentage = 0;
             otherworld_transition_time = 0f;
+
+            VARMAP_LevelMaster.REG_GAMESTATUS(_OnGameStatusChanged);
         }
 
 
@@ -150,6 +153,7 @@ namespace MVerse.LevelMaster
         private void Initializations()
         {
             _Enemy_List = new List<EnemyMasterClass>(GameFixedConfig.MAX_POOLED_ENEMIES);
+            _Mono_List = new List<MonoBehaviour>();
         }
 
         
@@ -188,6 +192,18 @@ namespace MVerse.LevelMaster
             }
         }
 
+        public static void MonoRegisterService(MonoBehaviour mono, bool add)
+        {
+            if (add)
+            {
+                _Mono_List.Add(mono);
+            }
+            else
+            {
+                _Mono_List.Remove(mono);
+            }
+        }
+
         private static void ActivateAllWorldEnemies(bool otherworld)
         {
             for(int i=0;i<_Enemy_List.Count;i++)
@@ -211,6 +227,36 @@ namespace MVerse.LevelMaster
         }
 
 
+        private void _OnGameStatusChanged(ChangedEventType evType, ref Game_Status oldval, ref Game_Status newval)
+        {
+            bool use;
+            bool activate;
+
+            if (newval == Game_Status.GAME_STATUS_PAUSE)
+            {
+                use = true;
+                activate = false;
+            }
+            else if (newval == Game_Status.GAME_STATUS_PLAY)
+            {
+                use = true;
+                activate = true;
+            }
+            else
+            {
+                use = false;
+                activate = false;
+            }
+
+            if (use)
+            {
+                for (int i = 0; i < _Mono_List.Count; i++)
+                {
+                    _Mono_List[i].enabled = activate;
+                }
+            }
+        }
+
 
         private void OnDestroy()
         {
@@ -218,6 +264,7 @@ namespace MVerse.LevelMaster
             {
                 _singleton = null;
                 _Enemy_List = null;
+                VARMAP_LevelMaster.UNREG_GAMESTATUS(_OnGameStatusChanged);
             }
         }
     }

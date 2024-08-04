@@ -19,6 +19,8 @@ namespace MVerse.VARMAP.GameMenu
             GET_ARRAY_POWERS = _GET_ARRAY_POWERS;
             GET_ELAPSED_TIME_MS = _GET_ELAPSED_TIME_MS;
             GET_GAMESTATUS = _GET_GAMESTATUS;
+            REG_GAMESTATUS = _REG_GAMESTATUS;
+            UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             GET_PRESSED_KEYS = _GET_PRESSED_KEYS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             START_GAME = _START_GAME;
@@ -38,6 +40,8 @@ namespace MVerse.VARMAP.GameMenu
         public static GetVARMAPArrayDelegate<bool> GET_ARRAY_POWERS;
         public static GetVARMAPValueDelegate<ulong> GET_ELAPSED_TIME_MS;
         public static GetVARMAPValueDelegate<Game_Status> GET_GAMESTATUS;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> REG_GAMESTATUS;
+        public static ReUnRegisterVARMAPValueChangeEventDelegate<Game_Status> UNREG_GAMESTATUS;
         public static GetVARMAPValueDelegate<KeyStruct> GET_PRESSED_KEYS;
         public static GetVARMAPValueDelegate<MousePropertiesStruct> GET_MOUSE_PROPERTIES;
         /* > ATG 2 END */

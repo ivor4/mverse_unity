@@ -7,4 +7,4 @@ N,SERVICE_ID,SPECIAL_DELEGATE,SERVICE_ROUTE,,GameMaster,InputMaster,LevelMaster,
 5,CHANGE_OTHER_WORLD,CHANGE_OTHER_WORLD_DELEGATE,LevelMasterClass.ChangeOtherWorldService,,,,W,,,,X,,,,
 6,FREEZE_PLAY,FREEZE_PLAY_DELEGATE,GameMasterClass.FreezePlayService,,W,,X,,,,,,,,
 7,ENEMY_REGISTER,ENEMY_REGISTER_SERVICE,LevelMasterClass.EnemyRegisterService,,,,W,,,,,X,,,
-8,PAUSE_GAME,PAUSE_GAME_DELEGATE,GameMasterClass.PauseGameService,,W,X,,,,,,,,,
+8,MONO_REGISTER,MONO_REGISTER_SERVICE,LevelMasterClass.MonoRegisterService,,,,W,,,,X,X,X,,X

@@ -1,4 +1,5 @@
 ﻿using MVerse.EnemyMaster;
+using UnityEngine;
 
 namespace MVerse.VARMAP.Types.Delegates
 {
@@ -10,5 +11,5 @@ namespace MVerse.VARMAP.Types.Delegates
     public delegate void CHANGE_OTHER_WORLD_DELEGATE(bool toOtherWorld, OtherWorldMode otherWorldMode);
     public delegate void FREEZE_PLAY_DELEGATE(bool freeze);
     public delegate void ENEMY_REGISTER_SERVICE(bool register, EnemyMasterClass instance);
-    public delegate void PAUSE_GAME_DELEGATE(bool pause);
+    public delegate void MONO_REGISTER_SERVICE(MonoBehaviour mono, bool add);
 }

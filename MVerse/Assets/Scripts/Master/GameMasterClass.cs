@@ -47,13 +47,32 @@ namespace MVerse.GameMaster
 
         private void Update()
         {
+            bool pausePressed;
             Game_Status gstatus = VARMAP_GameMaster.GET_GAMESTATUS();
+            KeyStruct kstruct = VARMAP_GameMaster.GET_PRESSED_KEYS();
+
+            pausePressed = (kstruct.cyclepressedKeys & KeyFunctions.KEYFUNC_PAUSE) != KeyFunctions.KEYFUNC_NONE;
 
             switch(gstatus)
             {
                 case Game_Status.GAME_STATUS_PLAY:
-                    Play_Process_Time();
+                    if (pausePressed)
+                    {
+                        PauseGameService(true);
+                    }
+                    else
+                    {
+                        Play_Process_Time();
+                    }
                     break;
+
+                case Game_Status.GAME_STATUS_PAUSE:
+                    if(pausePressed)
+                    {
+                        PauseGameService(false);
+                    }
+                    break;
+
                 case Game_Status.GAME_STATUS_STOPPED:
                     break;
             }
@@ -75,26 +94,15 @@ namespace MVerse.GameMaster
 
         public static void PauseGameService(bool pause)
         {
-            Game_Status gstatus = VARMAP_GameMaster.GET_GAMESTATUS();
-            bool playing;
-
-            _ = pause;
-
-            playing = (gstatus == Game_Status.GAME_STATUS_PLAY) || (gstatus == Game_Status.GAME_STATUS_PLAY_FREEZE);
-
-            if ( playing)
+            if (pause)
             {
                 VARMAP_GameMaster.SET_GAMESTATUS(Game_Status.GAME_STATUS_PAUSE);
                 Physics.simulationMode = SimulationMode.Script;
             }
-            else if(gstatus == Game_Status.GAME_STATUS_PAUSE)
+            else
             {
                 _SetGameStatus(prevPauseStatus);
                 Physics.simulationMode = SimulationMode.FixedUpdate;
-            }
-            else
-            {
-                /* Redundant operation / Invalid */
             }
         }
 

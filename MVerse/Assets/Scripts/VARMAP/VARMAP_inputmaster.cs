@@ -20,7 +20,6 @@ namespace MVerse.VARMAP.InputMaster
             SET_PRESSED_KEYS = _SET_PRESSED_KEYS;
             GET_MOUSE_PROPERTIES = _GET_MOUSE_PROPERTIES;
             SET_MOUSE_PROPERTIES = _SET_MOUSE_PROPERTIES;
-            PAUSE_GAME = _PAUSE_GAME;
             /* > ATG 1 END */
         }
 
@@ -40,7 +39,6 @@ namespace MVerse.VARMAP.InputMaster
 
         /* SERVICES */
         /* > ATG 3 START */
-        public static PAUSE_GAME_DELEGATE PAUSE_GAME;
         /* > ATG 3 END */
     }
 }

@@ -72,12 +72,12 @@ namespace MVerse.PlayerMaster
 
         private void Start()
         {
-            VARMAP_PlayerMaster.REG_GAMESTATUS(OnGameStatusChange);
-
             Fall();
             climbing_wall = null;
 
             solidMask = 1 << (int)CollisionLayer.LAYER_SOLID;
+
+            VARMAP_PlayerMaster.MONO_REGISTER(this, true);
         }
 
 
@@ -90,6 +90,7 @@ namespace MVerse.PlayerMaster
         {
             velocity_pre_collision = myrigidbody.velocity;
         }
+
 
         private void Execute_Play()
         {
@@ -270,19 +271,6 @@ namespace MVerse.PlayerMaster
             }
         }
 
-        private void OnGameStatusChange(ChangedEventType type, ref Game_Status oldstatus, ref Game_Status newstatus)
-        {
-            if(newstatus == Game_Status.GAME_STATUS_PLAY)
-            {
-                enabled = true;
-                actualcollider.enabled = true;
-            }
-            else
-            {
-                enabled = false;
-                actualcollider.enabled = false;
-            }
-        }
 
         private void Stand(GameObject platform)
         {
@@ -508,7 +496,7 @@ namespace MVerse.PlayerMaster
 
         private void OnDestroy()
         {
-            
+            VARMAP_PlayerMaster.MONO_REGISTER(this, false);
         }
     }
 }

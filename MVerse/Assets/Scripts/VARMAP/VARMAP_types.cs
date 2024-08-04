@@ -112,7 +112,8 @@ namespace MVerse.VARMAP.Types
         KEYFUNC_RIGHT = 1<<3,
         KEYFUNC_JUMP = 1<<4,
         KEYFUNC_ATTACK = 1<<5,
-        KEYFUNC_SPELL = 1<<6
+        KEYFUNC_SPELL = 1<<6,
+        KEYFUNC_PAUSE = 1<<7
     }
 
 

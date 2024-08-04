@@ -21,6 +21,7 @@ namespace MVerse.VARMAP.Enum
         VARMAP_ID_PRESSED_KEYS,
         VARMAP_ID_MOUSE_PROPERTIES,
         VARMAP_ID_PLAYER_POSITION,
+        VARMAP_ID_BOSS_STEP,
         VARMAP_ID_TOTAL
         /* > ATG 1 END < */
     }

@@ -27,6 +27,7 @@ namespace MVerse.VARMAP.EnemyMaster
             REG_GAMESTATUS = _REG_GAMESTATUS;
             UNREG_GAMESTATUS = _UNREG_GAMESTATUS;
             ENEMY_REGISTER = _ENEMY_REGISTER;
+            MONO_REGISTER = _MONO_REGISTER;
             /* > ATG 1 END */
         }
 
@@ -53,6 +54,7 @@ namespace MVerse.VARMAP.EnemyMaster
         /* SERVICES */
         /* > ATG 3 START */
         public static ENEMY_REGISTER_SERVICE ENEMY_REGISTER;
+        public static MONO_REGISTER_SERVICE MONO_REGISTER;
         /* > ATG 3 END */
     }
 }

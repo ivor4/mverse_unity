@@ -92,6 +92,10 @@ namespace MVerse.VARMAP
         protected static SetVARMAPValueDelegate<Vector3Struct> _SET_PLAYER_POSITION;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Vector3Struct> _REG_PLAYER_POSITION;
         protected static ReUnRegisterVARMAPValueChangeEventDelegate<Vector3Struct> _UNREG_PLAYER_POSITION;
+        protected static GetVARMAPValueDelegate<byte> _GET_BOSS_STEP;
+        protected static SetVARMAPValueDelegate<byte> _SET_BOSS_STEP;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<byte> _REG_BOSS_STEP;
+        protected static ReUnRegisterVARMAPValueChangeEventDelegate<byte> _UNREG_BOSS_STEP;
         /* > ATG 1 END < */
 
         /* All SERVICE Links */
@@ -104,7 +108,7 @@ namespace MVerse.VARMAP
         protected static CHANGE_OTHER_WORLD_DELEGATE _CHANGE_OTHER_WORLD;
         protected static FREEZE_PLAY_DELEGATE _FREEZE_PLAY;
         protected static ENEMY_REGISTER_SERVICE _ENEMY_REGISTER;
-        protected static PAUSE_GAME_DELEGATE _PAUSE_GAME;
+        protected static MONO_REGISTER_SERVICE _MONO_REGISTER;
         /* > ATG 2 END < */
         
         

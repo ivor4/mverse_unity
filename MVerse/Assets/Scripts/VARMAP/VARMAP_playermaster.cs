@@ -35,6 +35,7 @@ namespace MVerse.VARMAP.PlayerMaster
             GET_PLAYER_POSITION = _GET_PLAYER_POSITION;
             SET_PLAYER_POSITION = _SET_PLAYER_POSITION;
             CHANGE_OTHER_WORLD = _CHANGE_OTHER_WORLD;
+            MONO_REGISTER = _MONO_REGISTER;
             /* > ATG 1 END */
         }
 
@@ -68,6 +69,7 @@ namespace MVerse.VARMAP.PlayerMaster
         /* SERVICES */
         /* > ATG 3 START */
         public static CHANGE_OTHER_WORLD_DELEGATE CHANGE_OTHER_WORLD;
+        public static MONO_REGISTER_SERVICE MONO_REGISTER;
         /* > ATG 3 END */
     }
 }
